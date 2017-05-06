@@ -11,6 +11,7 @@ void Failure() {
 	state = -1;
 }
 
+//process states
 int process(char input) {
 	switch (state) {
 	case 0:
@@ -211,6 +212,7 @@ int process(char input) {
 	return 0;
 }
 
+//next input set
 void Reset() {
 	stack.clear();
 	stack.push_back('z');
@@ -230,16 +232,16 @@ int main()
 			char read = infile.get();
 			//cout << read;
 			cout << "(q" << state << "," << read << "," << stack[stack.size() - 1] << ")-->";
-			process(read);
+			process(read); //process for transition
 			cout << "(q" << state << "," << read << "," << stack[stack.size() - 1] << ")" << endl;
 
 			if (state == 100) {
 				cout << "Correct Sequence" << endl;
-				Reset();
+				Reset(); //start the next one
 			}
 			else if(state == 101) {
 				cout << "Sequence is syntactically incorrect" << endl;
-				Reset();
+				Reset(); //start the next one
 			}
 			
 
@@ -247,10 +249,6 @@ int main()
 	}
 	infile.close();
 
-	cout << endl << "Enter any to continue... " << endl;
-
-	char end;
-	cin >> end;
 	return 0;
 
 }

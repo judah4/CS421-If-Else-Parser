@@ -23,5 +23,6 @@
     <Text Include="sequence.txt">
       <Filter>Resource Files</Filter>
     </Text>
+    <Text Include="Readme.txt" />
   </ItemGroup>
 </Project>
